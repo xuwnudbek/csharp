@@ -39,16 +39,17 @@
             // O'zgaruvchilarga qiymatlarni qabul qilish
             VariablesAssign(out radius, out a, out b);
 
-            // Doira yuzasini aniqlash
+            // Doira yuzasini aniqlash & chop etish
             // Doira yuzasi: PI * r * r;
             double doiraYuzasi = DoiraYuzasiniAniqlash(radius);
             Console.WriteLine($"Doira yuzasi: {doiraYuzasi}");
 
-            // To'rtburchak yuzasini aniqlash
+            // To'rtburchak yuzasini aniqlash & chop etish
+            // To'rtburchak yuzasi: a * b;
             double tortburchakYuzasi = TortburchakYuzasiniAniqlash(a, b);
             Console.WriteLine($"Tortburchak yuzasi: {tortburchakYuzasi}");
 
-            // Umumiy yuzani aniqlash
+            // Umumiy yuzani aniqlash & chop etish
             s = doiraYuzasi + tortburchakYuzasi;
             Console.WriteLine($"Umumiy yuza: {s}");
         }
