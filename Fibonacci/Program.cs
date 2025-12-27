@@ -4,32 +4,29 @@
     {
         static List<int> GenerateFibNumbers(int n = 2)
         {
-            var fibonachchiSonlar = new List<int> { 0, 1 };
+            var fibonacciSonlar = new List<int> { 0, 1 };
             int counter = 2;
 
-            if (n > 2)
+            while (counter < n)
             {
-                while (counter < n)
-                {
-                    int fib0 = fibonachchiSonlar[counter - 2];
-                    int fib1 = fibonachchiSonlar[counter - 1];
+                int prePrev = fibonacciSonlar[counter - 2];
+                int prev = fibonacciSonlar[counter - 1];
 
-                    int fib = fib0 + fib1;
-                    fibonachchiSonlar.Add(fib);
+                int newFib = prePrev + prev;
+                fibonacciSonlar.Add(newFib);
 
-                    counter++;
-                }
+                counter++;
             }
 
-            return fibonachchiSonlar;
+            return fibonacciSonlar;
         }
 
         static void Main(string[] args)
         {
             int maxFibCount = 30;
 
-            Console.WriteLine("Fibonachchi sonlarni aniqlash");
-            Console.Write("Nechta fibonachchi sonni aniqlay: ");
+            Console.WriteLine("Fibonacci sonlarni aniqlash");
+            Console.Write("Nechta fibonacci sonni aniqlay: ");
             int n = Convert.ToInt32(Console.ReadLine());
 
             while (n > maxFibCount)
@@ -38,12 +35,12 @@
                 n = Convert.ToInt32(Console.ReadLine());
             }
 
-            var fibonachchiSonlar = GenerateFibNumbers(n);
+            var fibonacciSonlar = GenerateFibNumbers(n);
 
-            for (var i = 0; i < fibonachchiSonlar.Count; i++)
+            for (var i = 0; i < fibonacciSonlar.Count; i++)
             {
-                int fib = fibonachchiSonlar[i];
-                Console.WriteLine($"fib[{i}]: {fib}");
+                int fib = fibonacciSonlar[i];
+                Console.WriteLine($"{i + 1}-fibonacci: {fib}");
             }
         }
     }
