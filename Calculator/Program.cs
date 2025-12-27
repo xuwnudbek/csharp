@@ -8,7 +8,7 @@ namespace Calculator
         static void SelectOption(out int optionIndex)
         {
             Console.WriteLine(
-                "Please select an option:\n1. BMI Calculator\n2. Currency Converter\n0. Exit"
+                "Please select an option:\n\n1. BMI Calculator\n2. Currency Converter\n0. Exit\n"
             );
 
             Console.Write("Section: ");
@@ -86,12 +86,48 @@ namespace Calculator
         static void CurrencyConverter()
         {
             // O'zgaruvchilarni e'lon qilish
-            int option;
-            double value;
+            int optionIndex;
+            double value = 0.0;
+            const double oneDollarToSum = 12000;
+
+            void Usd2Sum()
+            {
+                Console.WriteLine("---------- USD to SUM ----------");
+
+                Console.Write("USD: ");
+                value = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine($"{value} USD = {Math.Round(oneDollarToSum * value, 2)} SUM");
+            }
+
+            void Sum2Usd()
+            {
+                Console.WriteLine("---------- SUM to USD ----------");
+
+                Console.Write("SUM: ");
+                value = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine($"{value} SUM = {Math.Round(value / oneDollarToSum, 2)} USD");
+            }
 
             Console.WriteLine("----------Currency Converter----------");
+            Console.WriteLine("Select convert type:\n\n1. USD to SUM\n2. SUM to USD\n");
 
-            Console.Write("Select convert type:\n1. USD to SUM\n2.SUM to USD");
+            Console.Write("Type: ");
+            optionIndex = Convert.ToInt32(Console.ReadLine());
+
+            switch (optionIndex)
+            {
+                case 1:
+                    Usd2Sum();
+                    break;
+                case 2:
+                    Sum2Usd();
+                    break;
+                default:
+                    Console.Beep();
+                    break;
+            }
         }
 
         static void Main(string[] args)
@@ -108,8 +144,11 @@ namespace Calculator
                 case 1:
                     BMICalculator();
                     break;
+                case 2:
+                    CurrencyConverter();
+                    break;
                 default:
-                    Console.WriteLine("Please select ");
+                    Console.WriteLine("Please select correct option index!");
                     break;
             }
         }
