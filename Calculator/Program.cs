@@ -1,9 +1,20 @@
 ﻿using System;
+using Microsoft.VisualBasic;
 
 namespace Calculator
 {
     class Program
     {
+        static void SelectOption(out int optionIndex)
+        {
+            Console.WriteLine(
+                "Please select an option:\n1. BMI Calculator\n2. Currency Converter\n0. Exit"
+            );
+
+            Console.Write("Section: ");
+            optionIndex = Convert.ToInt32(Console.ReadLine());
+        }
+
         static void BMICalculator()
         {
             // O'zgaruvchilarni e'lon qilish
@@ -11,8 +22,7 @@ namespace Calculator
             double vazni;
             double bmi;
 
-            Console.WriteLine("BMI Calculator ishga tushdi!");
-            Console.WriteLine("----------BMI----------");
+            Console.WriteLine("----------BMI Calculator----------");
 
             Console.Write("Bo'yingiz (sm): ");
             boyi = Convert.ToDouble(Console.ReadLine());
@@ -73,9 +83,35 @@ namespace Calculator
             }
         }
 
+        static void CurrencyConverter()
+        {
+            // O'zgaruvchilarni e'lon qilish
+            int option;
+            double value;
+
+            Console.WriteLine("----------Currency Converter----------");
+
+            Console.Write("Select convert type:\n1. USD to SUM\n2.SUM to USD");
+        }
+
         static void Main(string[] args)
         {
-            BMICalculator();
+            // O'zgaruvchilarni elon qilish
+            int optionIndex;
+
+            SelectOption(out optionIndex);
+
+            switch (optionIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    BMICalculator();
+                    break;
+                default:
+                    Console.WriteLine("Please select ");
+                    break;
+            }
         }
     }
 }
