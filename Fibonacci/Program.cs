@@ -26,9 +26,17 @@
 
         static void Main(string[] args)
         {
+            int maxFibCount = 30;
+
             Console.WriteLine("Fibonachchi sonlarni aniqlash");
             Console.Write("Nechta fibonachchi sonni aniqlay: ");
             int n = Convert.ToInt32(Console.ReadLine());
+
+            while (n > maxFibCount)
+            {
+                Console.Write($"Iltimos, {maxFibCount} yoki undan kichik son kiriting: ");
+                n = Convert.ToInt32(Console.ReadLine());
+            }
 
             var fibonachchiSonlar = GenerateFibNumbers(n);
 
